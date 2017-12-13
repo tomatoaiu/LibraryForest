@@ -1,7 +1,7 @@
 # LibraryForest
 https://tomatoaiu.github.io/LibraryForest/
 
-1. clone
+1. clone or pull
 1. ブランチ　例）feature/library
 1. 編集
 1. add
