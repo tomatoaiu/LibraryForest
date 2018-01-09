@@ -1,0 +1,17 @@
+.container #video,
+.container canvas {
+    border: 1px solid orange;
+}
+
+.container .video {
+    margin-bottom: 20px;
+}
+
+.container button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 25px;
+}
