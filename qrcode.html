@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/qrcode.css">
+
+    <!-- javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/vue.router/2.0.1/vue-router.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app" class="container">
+        <h1>QRcode</h1>
+        <div class="embed-responsive embed-responsive-4by3">
+            <video id="video" autoplay class="center-block embed-responsive-item video"></video>
+        </div>
+        
+        <button id="snap" class="btn btn-warning btn-lg btn-block">Snap Photo</button>
+        <!-- <canvas id="canvas" width="640" height="480"></canvas> -->
+        <p　class="text-center">バーコードを枠に合わせてください</p>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [{
+                    image: "./images/friend_dummy.png",
+                    name: 'ICHIRO',
+                    time: '1',
+                }, ]
+            }
+        });
+        // Grab elements, create settings, etc.
+        var video = document.getElementById('video');
+
+        // Get access to the camera!
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            // Not adding `{ audio: true }` since we only want video now
+            navigator.mediaDevices.getUserMedia({
+                video: true
+            }).then(async function (stream) {
+                video.src = await window.URL.createObjectURL(stream);
+                // await video.play();
+
+                var playPromise = document.querySelector('video').play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(function () {
+                        // Automatic playback started!
+                    }).catch(function (error) {
+                        // Automatic playback failed.
+                        // Show a UI element to let the user manually start playback.
+                    });
+                }
+            });
+        }
+
+        // Elements for taking the snapshot
+        // var canvas = document.getElementById('canvas');
+        // var context = canvas.getContext('2d');
+        var video = document.getElementById('video');
+
+        // Trigger photo take
+        document.getElementById("snap").addEventListener("click", function () {
+            context.drawImage(video, 0, 0, 640, 480);
+        });
+    </script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDuudFLhMQ5BdnnOrgzC5XqKteP2eBWUhA",
+        authDomain: "libraryforest-3c34d.firebaseapp.com",
+        databaseURL: "https://libraryforest-3c34d.firebaseio.com",
+        projectId: "libraryforest-3c34d",
+        storageBucket: "libraryforest-3c34d.appspot.com",
+        messagingSenderId: "241658451734"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var detaref = database.ref('/book');
+    detaref.once("value")
+    .then(function(snapshot) {
+        console.log(snapshot.child("0").val());
+    }); -->
+
+    </script>
+</body>
+
+</html>
