@@ -1,0 +1,28 @@
+.friend {
+    border: 1px solid orange;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.friend .friend-text {
+    color: #333333;
+}
+
+.friend img {
+    width: 150px;
+    height: 150px;
+    margin-left: -15px;
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.friend .friend-text .friend-name {
+    font-size: 30px;
+}
+
+.friend .friend-text .friend-time {
+}
