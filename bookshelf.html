@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bookshelf.css">
+
+    <!-- javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/vue.router/2.0.1/vue-router.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app" class="container">
+        <h1>bookshelf page</h1>
+        <div class="bookshelf row" v-for="value in images">
+            <div class="col-xs-6 col-md-3 book" v-for="v in value">
+                <img class="img-responsive center-block" 
+                    :src="v.image"
+                    @click="toBookDetail"
+                    alt="book_dummy_image">
+                <div class="shelf"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [{
+                        image: "./images/books/book_kamishibai_set.png",
+                    },
+                    {
+                        image: "./images/books/book_quran.png",
+                    },
+                    {
+                        image: "./images/books/book_renrakuchou.png",
+                    },
+                    {
+                        image: "./images/books/book_tosyo_card.png",
+                    },
+                    {
+                        image: "./images/books/book_christianity_holy_bible.png",
+                    },
+                    {
+                        image: "./images/books/book_sonshi_heihou.png",
+                    },
+                    {
+                        image: "./images/books/book_law.png",
+                    },
+                    {
+                        image: "./images/books/book_law_hou.png",
+                    },
+                    {
+                        image: "./images/books/book_law_roppouzensyo.png",
+                    },
+                    {
+                        image: "./images/books/book_kinsyo.png",
+                    },
+                    {
+                        image: "./images/books/book_taboo.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    },
+                    {
+                        image: "./images/friend_dummy.png",
+                    }
+                ],
+                images: [],
+            },
+            created() {
+                var count = this.items.length;
+                // for (var j in this.items) {
+                //     count++;
+                // }
+                // console.log(count);
+                var remainder = 4 - (count %= 4);
+                console.log(count);
+                // console.log(remainder);
+                if (remainder !== 0) {
+                    for (var i = 0; i < remainder; i++) {
+                        this.items.push({
+                            image: "./images/friend_dummy.png"
+                        });
+                    }
+                }
+
+                // var i = 0;
+                // while(i < this.items.length){
+                for (var i = 0; i < this.items.length;) {
+                    var a = [];
+                    for (var j = 0; j < 4; j++) {
+                        a.push(this.items[i++]);
+                    }
+                    this.images.push(a);
+                    console.log(i);
+                }
+                console.log(this.images);
+            },
+            methods: {
+                toBookDetail(){
+                    console.log("click");
+                }
+            }
+        })
+    </script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDuudFLhMQ5BdnnOrgzC5XqKteP2eBWUhA",
+        authDomain: "libraryforest-3c34d.firebaseapp.com",
+        databaseURL: "https://libraryforest-3c34d.firebaseio.com",
+        projectId: "libraryforest-3c34d",
+        storageBucket: "libraryforest-3c34d.appspot.com",
+        messagingSenderId: "241658451734"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    var detaref = database.ref('/book');
+    detaref.once("value")
+    .then(function(snapshot) {
+        console.log(snapshot.child("0").val());
+    }); -->
+
+    </script>
+</body>
+
+</html>

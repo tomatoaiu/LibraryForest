@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/friend.css">
+    <link rel="stylesheet" href="./css/detail-book.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -21,77 +22,64 @@
 <body>
 
     <div id="app" class="container">
-        <h1>top page</h1>
-        <div v-for="(value) in items">
-            <div class="friend row">
-                    <img class="col-xs-12 col-md-4" :src="value.image" alt="friend_dummy_image">
-                    <div class="col-xs-6 friend-text col-md-8">
-                        <div class="row">
-                            <p class="friend-name">{{ value.name }}</p>
-                            <p class="friend-time">{{ value.time }} minutes ago login</p>
-                        </div>
-                    </div>
-                </div>
+        <h1>detail book</h1>
+        <h2 v-model="bookName">{{ bookName }}</h2>
+        <span v-for="n in 5" v-if="n <= averageStar" class="fa fa-star fa-2x checked"></span>
+        <span v-else class="fa fa-star fa-2x"></span>
+
+
+        <div class="row justify-content-center">
+            <img class="img-responsive center-block" :src="url" alt="">
         </div>
 
-        
+        <div v-for="v in items" class="review">
+            <div class="row review-head justify-content-start">
+                <div class="col-xs-6 col-md-2">
+                    <p>{{ v.name }}</p>
+                </div>
+                <div class="star col-xs-6 col-md-10">
+                    <span v-for="n in 5" v-if="n <= v.star" class="fa fa-star fa-2x checked"></span>
+                    <span v-else class="fa fa-star fa-2x"></span>
+                </div>
+            </div>
+            <div>
+                <p>{{ v.text }}</p>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript">
         var app = new Vue({
             el: '#app',
             data: {
+                bookName: "紙芝居のイラスト",
+                url: "./images/books/book_kamishibai_set.png",
+                averageStar: 0,
                 items: [{
-                        image: "./images/friend_dummy.png",
                         name: 'ICHIRO',
-                        time: '1',
+                        star: 3,
+                        text: "普通"
                     },
                     {
-                        image: "./images/friend_dummy.png",
                         name: 'JIRO',
-                        time: '11',
+                        star: 5,
+                        text: "とてもおもしろい",
                     },
                     {
-                        image: "./images/friend_dummy.png",
-                        name: 'SANJIROU',
-                        time: '4',
+                        name: 'SABRO',
+                        star: 4,
+                        text: "ちょうどいい",
                     },
-                    {
-                        image: "./images/friend_dummy.png",
-                        name: 'SANJIROU',
-                        time: '2',
-                    },
-                    {
-                        image: "./images/friend_dummy.png",
-                        name: 'SHIROU',
-                        time: '4',
-                    },
-                    {
-                        image: "./images/friend_dummy.png",
-                        name: 'GRO',
-                        time: '55',
-                    },
-                    {
-                        image: "./images/friend_dummy.png",
-                        name: 'ROKUROU',
-                        time: '90',
-                    },
-                    {
-                        image: "./images/friend_dummy.png",
-                        name: 'NANAKO',
-                        time: '4',
-                    },
-                    {
-                        image: "./images/friend_dummy.png",
-                        name: 'HACHITA',
-                        time: '8',
-                    },
-                    {
-                        image: "./images/friend_dummy.png",
-                        name: 'KUROU',
-                        time: '78',
-                    }
                 ]
+            },
+            created() {
+                let sum = 0,
+                    count = 0;
+                for (var s of this.items) {
+                    sum += s.star;
+                    count++;
+                }
+                this.averageStar = sum / count;
             }
         })
     </script>

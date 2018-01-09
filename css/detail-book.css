@@ -1,0 +1,26 @@
+.checked {
+    color: orange;
+}
+
+.container img{
+    max-width: 400px;
+    min-width: 100px;
+    width: 400px;
+}
+
+.container .review{
+    margin-bottom: 35px;
+}
+
+.container p{
+    font-size: 18px;
+}
+
+.container .review-head{
+    border-bottom: 1px solid orange;
+    margin-bottom: 10px;
+}
+
+.container .review-head p{
+    font-size: 23px;
+}
