@@ -26,5 +26,9 @@ Vue.component('header-component', {
 
 // root インスタンスを作成する
 new Vue({
-    el: '#header'
+    el: '#header',
+    beforeUpdate(){
+        var bar = document.getElementById('navbar');
+        console.log(bar);
+    }
 })
