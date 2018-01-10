@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/qrcode.css">
 
     <!-- javascript -->
@@ -19,13 +20,30 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">図書館の杜</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="bookshelf.html">本棚
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-item nav-link" href="qrcode.html">QRコード</a>
+                <a class="nav-item nav-link" href="friend.html">フレンド一覧</a>
+                <a class="nav-item nav-link disabled" href="customized.html">カスタマイズ</a>
+            </div>
+        </div>
+    </nav>
 
     <div id="app" class="container">
         <h1>QRcode</h1>
         <div class="embed-responsive embed-responsive-4by3">
             <video id="video" autoplay class="center-block embed-responsive-item video"></video>
         </div>
-        
+
         <button id="snap" class="btn btn-warning btn-lg btn-block">Snap Photo</button>
         <!-- <canvas id="canvas" width="640" height="480"></canvas> -->
         <p　class="text-center">バーコードを枠に合わせてください</p>

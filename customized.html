@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/customized.css">
 
     <!-- javascript -->
@@ -19,23 +20,34 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">図書館の杜</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="bookshelf.html">本棚
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-item nav-link" href="qrcode.html">QRコード</a>
+                <a class="nav-item nav-link" href="friend.html">フレンド一覧</a>
+                <a class="nav-item nav-link disabled" href="customized.html">カスタマイズ</a>
+            </div>
+        </div>
+    </nav>
 
     <div id="app" class="container">
         <h1>Customized</h1>
         <div class="row">
-            <div class="col-xs-6 col-md-4 shelf"
-                v-for="n in 6"
-                v-bind:style="shelfColor">
+            <div class="col-xs-6 col-md-4 shelf" v-for="n in 6" v-bind:style="shelfColor">
             </div>
         </div>
         <div class="row colors">
             <h3>本棚の色を選択してください</h3>
-            <div class="col-xs-6 col-md-2" 
-                v-for="v in colors">
-                <div class="color"
-                    v-bind:style="v"
-                    @click="changeColor(v)"
-                    ></div>
+            <div class="col-xs-6 col-md-2" v-for="v in colors">
+                <div class="color" v-bind:style="v" @click="changeColor(v)"></div>
             </div>
         </div>
     </div>
@@ -76,8 +88,8 @@
                 shelfColor: undefined,
                 currentColor: undefined,
             },
-            created(){
-                for(var v of this.items){
+            created() {
+                for (var v of this.items) {
                     this.colors.push({
                         "background-color": `${v.color}`,
                         "color": `${v.color}`
@@ -86,7 +98,7 @@
                 console.log(this.colors);
             },
             methods: {
-                changeColor(c){
+                changeColor(c) {
                     this.shelfColor = `border-bottom: 10px solid ${c.color}`
                     this.currentColor = c.color;
                     console.log(c.color);
