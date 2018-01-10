@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/friend.css">
 
     <!-- javascript -->
@@ -19,22 +20,39 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">図書館の杜</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="bookshelf.html">本棚
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-item nav-link" href="qrcode.html">QRコード</a>
+                <a class="nav-item nav-link" href="friend.html">フレンド一覧</a>
+                <a class="nav-item nav-link disabled" href="customized.html">カスタマイズ</a>
+            </div>
+        </div>
+    </nav>
 
     <div id="app" class="container">
         <h1>top page</h1>
         <div v-for="(value) in items">
             <div class="friend row">
-                    <img class="col-xs-12 col-md-4" :src="value.image" alt="friend_dummy_image">
-                    <div class="col-xs-6 friend-text col-md-8">
-                        <div class="row">
-                            <p class="friend-name">{{ value.name }}</p>
-                            <p class="friend-time">{{ value.time }} minutes ago login</p>
-                        </div>
+                <img class="col-xs-12 col-md-4" :src="value.image" alt="friend_dummy_image">
+                <div class="col-xs-6 friend-text col-md-8">
+                    <div class="row">
+                        <p class="friend-name">{{ value.name }}</p>
+                        <p class="friend-time">{{ value.time }} minutes ago login</p>
                     </div>
                 </div>
+            </div>
         </div>
 
-        
+
     </div>
 
     <script type="text/javascript">
