@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/customized.css">
+    <link rel="stylesheet" href="./css/bookshelf.css">
 
     <!-- javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -25,15 +26,11 @@
     </div>
 
     <div id="app" class="container">
-        <h1>Customized</h1>
-        <div class="row">
-            <div class="col-xs-6 col-md-4 shelf" v-for="n in 6" v-bind:style="shelfColor">
-            </div>
-        </div>
-        <div class="row colors">
-            <h3>本棚の色を選択してください</h3>
-            <div class="col-xs-6 col-md-2" v-for="v in colors">
-                <div class="color" v-bind:style="v" @click="changeColor(v)"></div>
+        <h1>bookshelf page</h1>
+        <div class="bookshelf row" v-for="value in images">
+            <div class="col-xs-6 col-md-3 book" v-for="v in value">
+                <img class="img-responsive center-block" :src="v.image" @click="toBookDetail" alt="book_dummy_image">
+                <div class="shelf"></div>
             </div>
         </div>
     </div>
@@ -43,54 +40,13 @@
             el: '#app',
             data: {
                 items: [{
-                        color: "red"
-                    },
-                    {
-                        color: "blue"
-                    },
-                    {
-                        color: "yellow"
-                    },
-                    {
-                        color: "green"
-                    },
-                    {
-                        color: "brown"
-                    },
-                    {
-                        color: "black"
-                    },
-                    {
-                        color: "pink"
-                    },
-                    {
-                        color: "gray"
-                    },
-                    {
-                        color: "orange"
-                    },
-                ],
-                colors: [],
-                shelfColor: undefined,
-                currentColor: undefined,
-            },
-            created() {
-                for (var v of this.items) {
-                    this.colors.push({
-                        "background-color": `${v.color}`,
-                        "color": `${v.color}`
-                    });
-                }
-                console.log(this.colors);
-            },
-            methods: {
-                changeColor(c) {
-                    this.shelfColor = `border-bottom: 10px solid ${c.color}`
-                    this.currentColor = c.color;
-                    console.log(c.color);
-                }
+                    image: "./images/books/book_kamishibai_set.png",
+                }, ],
+                images: [],
             }
         });
+
+        
     </script>
     <script src="./js/header-component.js"></script>
 
