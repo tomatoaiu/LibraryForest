@@ -10,7 +10,7 @@ Vue.component('header-component', {
                     <span class="icon-bar"></span>\
                     <span class="icon-bar"></span>\
                 </button>\
-                <a class="navbar-brand" href="#">図書館の杜</a>\
+                <a class="navbar-brand" href="./index.html">図書館の杜</a>\
             </div>\
             <div cl.ass="collapse navbar-collapse" id="navbarEexample1">\
                 <ul class="nav navbar-nav">\

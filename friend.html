@@ -26,7 +26,8 @@
 
     <div id="app" class="container">
         <h1>friend list</h1>
-        <div v-for="(value) in items">
+        <div v-for="(value) in items"
+            @click="toBookShelf()">
             <div class="friend row">
                 <img class="col-xs-12 col-md-4" :src="value.image" alt="friend_dummy_image">
                 <div class="col-xs-6 friend-text col-md-8">
@@ -96,6 +97,11 @@
                         time: '78',
                     }
                 ]
+            },
+            methods: {
+                toBookShelf(){
+                    window.location.href = './bookshelf.html';
+                }
             }
         })
     </script>
