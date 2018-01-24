@@ -70,13 +70,15 @@
       border-color: white;
     }
 
-    .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-    background-color: white;
-}
+    .navbar-inverse .navbar-toggle:focus,
+    .navbar-inverse .navbar-toggle:hover {
+      background-color: white;
+    }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-    border-color: white;
-}
+    .navbar-inverse .navbar-collapse,
+    .navbar-inverse .navbar-form {
+      border-color: white;
+    }
     /* Next & previous buttons */
 
     .prev,
@@ -168,12 +170,18 @@
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">
           <div class="form-group">
-            <input type="text" placeholder="学生番号" class="form-control">
+            <input type="text" placeholder="学籍番号" class="form-control">
           </div>
           <div class="form-group">
-            <input type="password" placeholder="暗証番号" class="form-control">
+            <input type="password" placeholder="パスワード" class="form-control">
           </div>
-          <button type="submit" class="btn btn-success">登録</button>
+          <button type="submit" class="btn btn-success" onclick="toBookShelf()">登録・ログイン</button>
+          <script>
+            const toBookShelf = () => {
+              console.log(1);
+              window.location.href = './bookshelf.html';
+            }
+          </script>
         </form>
       </div>
       <!--/.navbar-collapse -->
@@ -184,11 +192,10 @@
   <div class="jumbotron" style="background:lightblue">
     <div class="container">
       <h1 style="color:white">おいでよ！図書館の杜</h1>
-      <p>※本システムは開発中です</p>
       <!-- <p style="color:white">This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron
         and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
       <p style="color:white"> -->
-      <a class="btn btn-primary btn-lg" href="./bookshelf.html" role="button">Learn more &raquo;</a>
+      <a class="btn btn-primary btn-lg" href="./bookshelf.html" role="button">本棚へ &raquo;</a>
       <!-- </p> -->
     </div>
   </div>
@@ -198,33 +205,33 @@
     <div class="mySlides">
 
       <img src="jpg/2.jpg" style="width:100%">
-      <div class="text">######</div>
+      <!-- <div class="text">######</div> -->
     </div>
     <div class="mySlides">
 
       <img src="jpg/1.jpg" style="width:100%">
-      <div class="text">######</div>
+      <!-- <div class="text">######</div> -->
     </div>
     <div class="mySlides">
 
       <img src="jpg/2.jpg" style="width:100%">
-      <div class="text">######</div>
+      <!-- <div class="text">######</div> -->
     </div>
     <div class="mySlides">
 
       <img src="jpg/3.jpg" style="width:100%">
-      <div class="text">######</div>
+      <!-- <div class="text">######</div> -->
     </div>
     <div class="mySlides">
 
       <img src="jpg/4.jpg" style="width:100%">
-      <div class="text">Caption Two</div>
+      <!-- <div class="text">Caption Two</div> -->
     </div>
 
     <div class="mySlides">
 
       <img src="jpg/5.jpg" style="width:100%">
-      <div class="text">Caption Three</div>
+      <!-- <div class="text">Caption Three</div> -->
     </div>
 
     <!-- Next and previous buttons -->
